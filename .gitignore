@@ -1,0 +1,17 @@
+# Backup files
+*~
+*.bak
+
+# Emacs temp files
+\#*
+
+# IntelliJ projects
+.idea
+*.iml
+
+# MacOS junk
+.DS_Store
+
+# Bundler files
+.bundle
+
