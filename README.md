@@ -2,6 +2,11 @@
 
 ## Overview
 
+Simple Grape application to check into two things
+
+1) How to use Grape (I'm use to Sinatra)
+2) How to carry out Single Sign On with an application and Windows ADFS
+
 
 ## Running
 
@@ -18,7 +23,7 @@ Run the following
 
 ```
 gem install bundler --user-install
-export PATH=~/.gem/ruby/2.6.0/bin:$PATH
+export PATH=~/.gem/ruby/2.5.0/bin:$PATH
 
 bundle install --deployment
 ```
@@ -28,7 +33,7 @@ bundle install --deployment
 Run the following command to start the server
 
 ```
-bundle exec startServer.rb
+bundle exec ./startServer.rb
 ```
 
 You can then access the status endpoint using the following curl command
@@ -36,6 +41,8 @@ You can then access the status endpoint using the following curl command
 ```
 curl http://localhost:9292/status
 ```
+
+
 
 
 ## References

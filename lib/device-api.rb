@@ -18,23 +18,15 @@ module ACDeviceSystem
 
     get :status do
       @@log.debug("/status called")
-
+      @@log.debug("Headers: #{headers}")
       { status: 'OK' }
     end
 
-    post :register do
-      @@log.debug("/register called")
-
-    end
-
-    post :authenticate do
-      @@log.debug("/authenticate called")
-
-    end
-
-    put :data do
-      @@log.debug("/data called")
-
+    get :somestuff do
+      @@log.debug("/somestuff called")
+      @@log.debug("Headers: #{headers}")
+      header 'WWW-Authenticate', 'Negotiate'
+      error!('Need to authenticate for somestuff', 401)
     end
   end
 
