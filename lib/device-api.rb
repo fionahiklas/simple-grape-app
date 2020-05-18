@@ -8,11 +8,27 @@ require 'util/lumber'
 
 module ACDeviceSystem
 
+  class DeviceContent < Grape::API
+    include Util::Lumber::LumberJack
+
+    @@log = lumber("DeviceContent")
+
+    format :txt
+    content_type :txt, 'text/html'
+
+    get :page do
+      @@log.debug("/page called")
+      @@log.debug("Headers: #{headers}")
+      "<html><head><title>Ruby Grape Test App</title></head><body><h1>Test App</h1></body></html>"
+    end
+  end
+
+  
   class DeviceApi < Grape::API
 
     include Util::Lumber::LumberJack
 
-    @@log = lumber("Server")
+    @@log = lumber("DeviceApi")
 
     format :json
 
@@ -28,6 +44,7 @@ module ACDeviceSystem
       header 'WWW-Authenticate', 'Negotiate'
       error!('Need to authenticate for somestuff', 401)
     end
+
   end
 
 
@@ -42,8 +59,9 @@ module ACDeviceSystem
     #   end
     # end
 
-    format :json
     mount DeviceApi
+    mount DeviceContent
+    
     add_swagger_documentation
   end
 end
